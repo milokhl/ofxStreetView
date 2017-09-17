@@ -22,4 +22,6 @@ public:
     ofEasyCam cam;
     
     ofxStreetView streetview;
+
+    int locationIndex;
 };
