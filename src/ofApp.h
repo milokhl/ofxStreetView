@@ -23,5 +23,8 @@ public:
     
     ofxStreetView streetview;
 
+    // Boundaries
+    std::vector<std::vector<double>> boundaries;
+    std::vector<std::vector<double>> locations;
     int locationIndex;
 };

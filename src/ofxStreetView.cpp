@@ -278,6 +278,10 @@ void ofxStreetView::makeDepthMesh(){
             
         }
     }
+    std::string fname = "mesh" + std::to_string(lat) + "." + std::to_string(lon) + ".ply";
+
+    meshDepth.save(fname, false);
+    std::cout << fname << std::endl;
 }
 
 void ofxStreetView::addVertex(int x, int y){
@@ -311,6 +315,11 @@ void ofxStreetView::addVertex(int x, int y){
     meshDepth.addNormal(normal);
     meshDepth.addTexCoord(texCoord);
     meshDepth.addVertex(pos);
+
+    // use x y from 
+    // HERE
+    // color = panorama(x, y)
+    // meshDepth.addColor(ofColor(255, 0, 0, 255));
 }
 
 string ofxStreetView::getCloseLinkTo(float _deg){
@@ -355,7 +364,6 @@ ofTexture& ofxStreetView::getTexture(){
     if(!panoFbo.isAllocated()){
         panoFbo.allocate(getWidth(),getHeight());
     }
-
     return panoFbo.getTexture();
 }
 
@@ -395,7 +403,7 @@ void ofxStreetView::update(){
         int y = 0;
         for(int i= 0; i < panoImages.size(); i++){
             panoImages.at(i).draw(x*panoImages.at(i).getWidth(), y*panoImages.at(i).getHeight());
-            if(x < 6){
+            if(x < 6) {
                 x++;
             }else{
                 x=0;

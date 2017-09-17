@@ -84,6 +84,7 @@ protected:
     ofFbo       panoFbo;
     
     void        makeDepthMesh();
+    void        fillMeshTexture();
     void        addVertex(int x, int y);
     ofVboMesh   meshDepth;
     
